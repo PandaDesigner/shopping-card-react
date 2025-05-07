@@ -1,4 +1,4 @@
-import {Component , type ErrorInfo , type ReactNode} from "react";
+import { Component, type ErrorInfo, type ReactNode } from "react";
 
 
 interface Props {
@@ -28,9 +28,9 @@ class ErrorBoundary extends Component<Props, State> {
     public render() {
         if (this.state.hasError) {
             return this.props.fallback || (
-                <div className="gap-4 h-screen w-screen bg-slate-800 text-red-400 flex flex-col justify-center items-center" role="alert">
+                <div className="gap-4 h-screen w-screen bg-slate-800 text-red-50 flex flex-col justify-center items-center" role="alert">
                     <h2 className="text-6xl font-bold">Algo salió mal.</h2>
-                    <details className="font-medium" style={{ whiteSpace: 'pre-wrap' }}>
+                    <details className="font-medium text-red-400" style={{ whiteSpace: 'pre-wrap' }}>
                         {this.state.error?.toString()}
                     </details>
                 </div>

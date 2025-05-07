@@ -19,7 +19,7 @@ export class Utils {
 
     public static mapperProducts( product: IProduct) :IProductMapper {
         return {
-            id: product.id.toString(),
+            id: product.id,
             name: product.title,
             price: product.price,
             description: product.description,

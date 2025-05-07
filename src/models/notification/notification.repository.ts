@@ -8,6 +8,7 @@ export interface AlertOptions {
     cancelButtonText?: string;
     showCancelButton?: boolean;
     showCloseButton?: boolean;
+    showConfirmButton?: boolean;
     timer?: number;
 }
 
@@ -21,6 +22,7 @@ export class NotificationRepository {
             cancelButtonText = 'Cancel',
             showCancelButton = false,
             showCloseButton = false,
+            showConfirmButton = true,
             timer
         } = options;
 
@@ -32,6 +34,7 @@ export class NotificationRepository {
             cancelButtonText,
             showCancelButton,
             showCloseButton,
+            showConfirmButton,
             timer
         });
     }
@@ -42,7 +45,9 @@ export class NotificationRepository {
             text,
             icon: 'success',
             confirmButtonText: 'OK',
-            showCloseButton: true
+            showCloseButton: true,
+            showConfirmButton: false,
+            timer: 2000
         });
     }
 
@@ -84,6 +89,7 @@ export class NotificationRepository {
             text,
             icon: 'info',
             confirmButtonText: 'OK',
+            showConfirmButton: false,
             showCloseButton: true,
             timer
         });

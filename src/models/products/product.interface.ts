@@ -14,11 +14,12 @@ export interface IProduct {
 }
 
 export interface IProductMapper {
-    id: string
+    id: number
     name: string
     description: string;
     price: number
     originalPrice?: number
     image: string
     category: string
+    quantity?: number
 }

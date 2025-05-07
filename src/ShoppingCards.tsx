@@ -3,6 +3,7 @@ import {Navigate , Route , Routes} from "react-router";
 import {HomePage} from "@/pages/HomePage.tsx";
 import {ProductPage} from "@/pages/ProductPage.tsx";
 import {CartPage} from "@/pages/CartPage.tsx";
+import {FooterComponent} from "@/components/footer/FooterComponent.tsx";
 
 function ShoppingCards () {
 
@@ -17,6 +18,7 @@ function ShoppingCards () {
                     <Route path="/cart" element={<CartPage/>}></Route>
                 </Routes>
             </div>
+            <FooterComponent/>
         </>
     )
 }
