@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { ShoppingCart, X } from "lucide-react";
 import { useProduct } from "@/models/products/hooks/useProduct.tsx";
 import type { IProductMapper } from '@/models/products/product.interface';
+import { useEffect } from 'react';
 
 interface ProductCardProps {
     product: IProductMapper;
@@ -13,9 +14,14 @@ interface ProductCardProps {
 export const CardComponent = ({ product }: ProductCardProps) => {
     const { id, name, price, originalPrice, image, category } = product
 
-    const { addedToCart, handleAddToCart } = useProduct();
+    const { addedToCart, handleAddToCart, cartProducts, setAddedToCart } = useProduct();
 
     const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0
+
+    useEffect(() => {
+        const isViewProduct = cartProducts.some(item => item.id === id)
+        setAddedToCart(isViewProduct)
+    }, [cartProducts])
 
     return (
         <Card

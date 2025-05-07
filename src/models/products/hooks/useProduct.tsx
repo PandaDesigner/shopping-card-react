@@ -88,5 +88,6 @@ export const useProduct = () => {
         addTotalPrice: setTotalValuePrice, // No es necesario crear otra función
         removeTotalPrice: reomveTotalValuePrice, // No es necesario crear otra función
         addedToCart,
+        setAddedToCart,
     };
 };
