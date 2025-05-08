@@ -49,7 +49,7 @@ export const StoreProduct = create<ProductsStoreType>()((set, get) => ({
     },
     updateQuantity: (productId: number, quantitys: number = 1) => {
         const updatedProductsCart = get().productsCart.map((product) => {
-            const newQuantity = product?.quantity === undefined ? 0 : product.quantity + quantitys;
+            const newQuantity = product?.quantity === undefined ? 0 : Math.max(product.quantity + quantitys, 1);
             if (product.id === productId) {
                 return { ...product, quantity: newQuantity };
             }

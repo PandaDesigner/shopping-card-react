@@ -6,12 +6,14 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Separator } from '../ui/separator'
 import { useProduct } from '@/models/products/hooks/useProduct'
 import { CartComponent } from './CartComponent'
+import { reportJsPdf } from '@/models/jspdf/jspdfAdapter.impl'
 
 
 interface CartDrawerProps {
     open: boolean
     onOpenChange: (open: boolean) => void
 }
+
 
 export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
     const { cartProducts, upgradeQuantity, totalValuePrice, deleteProductFromCart, cleanFilterCart } = useProduct()
@@ -64,7 +66,7 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                         </div>
                     )}
                     <DrawerFooter>
-                        <Button disabled={cartProducts.length === 0}>Proceder al pago</Button>
+                        <Button disabled={cartProducts.length === 0} onClick={() => reportJsPdf.generatePdf(cartProducts)} >Proceder al pago</Button>
                         {cartProducts.length > 0 && (
                             <Button variant="outline" onClick={cleanFilterCart}>
                                 Vaciar carrito
